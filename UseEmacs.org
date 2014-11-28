@@ -1,5 +1,29 @@
 * 一个Emacser的日记
 
+** Emacs的宏录制使用(<2014-11-28 周五>)
+#+BEGIN_EXAMPLE
+   C-x (    开始录制宏
+   C-x )    结束录制宏
+   C-x e    执行宏
+   e        重复执行宏
+#+END_EXAMPLE
+#+BEGIN_QUOTE
+   C-x (    开始录制宏
+   C-x )    结束录制宏
+   C-x e    执行宏
+   e        重复执行宏
+#+END_QUOTE
+#+ASCII: test
+   C-x (    开始录制宏
+   C-x )    结束录制宏
+   C-x e    执行宏
+   e        重复执行宏
+#+BEGIN_SRC
+   C-x (    开始录制宏
+   C-x )    结束录制宏
+   C-x e    执行宏
+   e        重复执行宏
+#+END_SRC
 ** 一些资源网站
 *** Emacs学习资源
 	[[http://blog.csdn.net/CherylNatsu/article/details/6536959][Emacs常用命令快速参考]]
