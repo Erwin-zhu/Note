@@ -1,9 +1,12 @@
-* 使用Emacs过程中遇到的问题记录
+* 使用Eclipse过程中遇到的问题记录
   CreateTime:<2014-11-28 周五>
+
 ** 用真机调试时，Eclipse调试出现"No active compatible AVD's or devices found. Relaunch this configuration after connecting a device or starting an AVD."错误。
   解决办法：重启电脑（暂时未找到原因）
+
 ** 小米平板在公司win8系统上连接不上的原因（eclipse无法识别)报：SpyClientEngine] No active compatible AVD's or devices found. Relaunch this configuration after connecting a device or starting an AVD.
   解决办法：暂无
+
 ** 小米平板（水货）无法连接调试：报如下错误：
   Failed to install SpyClientEngine.apk on device 'CAE97531': timeout
   Launch failed on device: CAE97531
@@ -11,18 +14,21 @@
   Launch error: timeout
   Launch error: timeout
   解决办法：暂无
-** 将Eclipse工作空间更换后出现 Unresolved inclusion: "SpyData.h"...错误的解决办法(注：编译运行没有问题，但是不能打开相关源文件，打开就报错)
+
+** the problem when changed the Eclipse's workspace.
 *** Unresolved inclusion <pthread.h> ...
   解决办法:NDK Project->New->Folder->Advanced->Link to alternate location(Linked Folder) Browse the path（for example)：C:\Android\android-ndk-r8b\platforms\android-8\arch-arm\usr\include(NOTE:这只能解决库函数包含问题：如不能之别pthread.h...，还有部分未解决.)
-  [[http://stackoverflow.com/questions/12584255/android-add-native-support-unresolved-jni-h-android-log-h-etc][Android Add Native support - unresolved jni.h, android/log.h etc]]
+  [[http://stackoverflow.com/questions/12584255/android-add-native-support-unresolved-jni-h-android-log-h-etc][@Referenceddata: Android Add Native support - unresolved jni.h, android/log.h etc]]
 *** in Java code, R can't be resolved:
   解决办法:->Project->clean  
-  [[http://stackoverflow.com/questions/7824730/r-cannot-be-resolved-to-a-variable][referencedData:“R cannot be resolved to a variable”? duplicate]]
+  [[http://stackoverflow.com/questions/7824730/r-cannot-be-resolved-to-a-variable][@ReferencedData:“R cannot be resolved to a variable”? duplicate]]
 *** in native code: Unresolved inclusion: <string>... etc
   解决办法:Go to Project > Properties > C/C++ General > Preprocessor Includes... > Providers 
 and select "CDT GCC Built-in Compiler Settings". 
-  [[http://stackoverflow.com/questions/10373788/c-unresolved-inclusion-iostream][referencedData: C++ - Unresolved inclusion: <iostream>]]
+  [[http://stackoverflow.com/questions/10373788/c-unresolved-inclusion-iostream][@ReferencedData: C++ - Unresolved inclusion: <iostream>]]
 *** in native code: Unresolved inclusion: "SpyData.h"(注:此头文件为Sunflower\Android\Workspace\Inc\下文件)
   解决办法:将Jni/andriod.mk 修改一下 MY_ALL_DIRS := $(LOCAL_PATH)/../../Inc/ \(注：非常奇怪，以前用的好好的，突然就出问题了，就是多加了一个反斜杠/)
 *** Run C/C++ code analysis 后出现 "Symbol 'F_GETFL' could not be resolved"
-  解决办法:重启Eclipse.
+  解决办法: n your selected project preferences within the Eclipse environment, go to C/C++ General -> Code Analysis -> Launching. Make sure that both check boxes are unchecked.
+  [[http://stackoverflow.com/questions/16786555/eclipse-compiles-successfully-but-still-gives-semantic-errors][@ReferencedData: Eclipse compiles successfully but still gives semantic errors]]
+
